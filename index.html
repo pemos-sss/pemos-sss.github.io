@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pemo's Vault | Write-ups</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <canvas id="matrix-canvas"></canvas>
+    <div id="welcome-screen" class="full-screen">
+        <div class="welcome-content">
+            <h1>Welcome to Pemo's Vault</h1>
+            <p>Malware Analysis & Reverse Engineering Write-ups</p>
+            <button onclick="enterSite()" class="btn-main">Enter Write-ups</button>
+        </div>
+    </div>
+
+    <div id="main-content" class="hidden">
+        <header>
+            <nav>
+                <div class="logo">Pemo's Vault</div>
+            </nav>
+        </header>
+
+        <div class="container">
+            <aside class="sidebar">
+                <h3>Categories</h3>
+                <ul id="category-list">
+                    <li onclick="filterPosts('all')">All</li>
+                    </ul>
+            </aside>
+
+            
+    <div id="posts-container"></div> <div id="single-post-view" class="hidden"></div> </main>
+        </div>
+    </div>
+
+    <div id="admin-panel" class="modal hidden">
+        <div class="modal-content">
+            <span class="close" onclick="closeAdmin()">&times;</span>
+            <h2>لوحة التحكم</h2>
+            <div id="login-section">
+                <input type="password" id="admin-pass" placeholder="Password">
+                <button onclick="loginAdmin()" class="btn-main">دخول</button>
+            </div>
+
+            <div id="admin-controls" class="hidden">
+                <div class="control-group">
+                    <h3>إضافة مقال</h3>
+                    <input type="text" id="post-title" placeholder="عنوان المقال">
+                    <select id="post-category-select"></select>
+                    <textarea id="post-content" placeholder="محتوى المقال (يدعم HTML)"></textarea>
+                    <button onclick="addPost()" class="btn-save">نشر المقال</button>
+                </div>
+                <hr>
+                <div class="control-group">
+                    <h3>إدارة التصنيفات</h3>
+                    <input type="text" id="new-cat-name" placeholder="اسم التصنيف الجديد">
+                    <button onclick="addCategory()" class="btn-save">إضافة تصنيف</button>
+                    <ul id="manage-categories"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="script.js"></script>
+    <script>
+        function enterSite() {
+            document.getElementById('welcome-screen').classList.add('hidden');
+            document.getElementById('main-content').classList.remove('hidden');
+        }
+        function closeAdmin() {
+            document.getElementById('admin-panel').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
