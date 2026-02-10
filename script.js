@@ -171,7 +171,7 @@ window.viewPost = (id) => {
             singleView.classList.remove('hidden');
 
             singleView.innerHTML = `
-                <button onclick="loadPosts()" class="btn-main" style="margin-bottom: 20px; padding: 5px 15px; font-size: 0.9rem;">← العودة للمقالات</button>
+                <button onclick="loadPosts()" class="btn-main" style="margin-bottom: 20px; padding: 5px 15px; font-size: 0.9rem;">← Return to homepage</button>
                 <article class="post-card">
                     <h1 style="color: var(--accent); border-bottom: 1px solid var(--border-color); padding-bottom: 10px;">${post.title}</h1>
                     <div style="margin: 10px 0; color: #8b949e; font-size: 0.8rem;">التصنيف: ${post.category}</div>
